@@ -15,6 +15,7 @@ export function Dialog({
     const previous = document.activeElement as HTMLElement | null;
     const d = ref.current!;
     d.showModal();
+    d.querySelector<HTMLButtonElement>("button")?.focus();
     return () => {
       d.close();
       if (previous?.isConnected) previous.focus();
@@ -26,6 +27,23 @@ export function Dialog({
       ref={ref}
       className={drawer ? "drawer" : ""}
       aria-labelledby="dialog-title"
+      onKeyDown={(e) => {
+        if (e.key !== "Tab") return;
+        const items = Array.from(
+          ref.current!.querySelectorAll<HTMLElement>(
+            'button, a[href], input, select, textarea, [tabindex="0"]',
+          ),
+        ).filter((el) => !el.hasAttribute("disabled"));
+        const first = items[0],
+          last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }}
       onCancel={(e) => {
         e.preventDefault();
         close();

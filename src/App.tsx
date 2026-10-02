@@ -135,11 +135,15 @@ export function App() {
         "Loaded the reviewed saved choices. Previous tab-only changes were replaced.",
       );
     } else {
-      setUndo({
-        previous: state,
-        after: JSON.stringify(next),
-        scope: preview.scope,
-      });
+      setUndo(
+        preview.title === "Undo last change"
+          ? null
+          : {
+              previous: state,
+              after: JSON.stringify(next),
+              scope: preview.scope,
+            },
+      );
       save(next, preview.reset, preview.unavailable);
       setDraft(next.preferences);
     }
@@ -656,9 +660,13 @@ export function App() {
             </p>
           </div>
           <p className="small">
-            Undo scope: {preview.scope}. Undo lasts in this tab until another
-            action replaces it; refresh removes Undo. Confirmation checks both
-            current content and saved content for stale changes.
+            {preview.refresh
+              ? "Loading replaces current tab-only work and clears Undo. No restoration is offered for this load."
+              : preview.title === "Undo last change"
+                ? "This restores the one prior snapshot and consumes Undo. There is no history stack."
+                : `Undo scope: ${preview.scope}. Undo lasts in this tab until another action replaces it; refresh removes Undo.`}{" "}
+            Confirmation checks both current content and saved content for stale
+            changes.
           </p>
           <div className="actions">
             <button
