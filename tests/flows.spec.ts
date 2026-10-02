@@ -405,3 +405,48 @@ test("external corruption can be explicitly reset without reload", async ({
   ).toBe(false);
   await expect(page.getByText("We do not know your goal yet.")).toBeVisible();
 });
+
+test("opening preferences focuses and reveals task at 1280 by 633", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 633 });
+  const heading = page.getByRole("heading", {
+    name: "Your starting point",
+    exact: true,
+  });
+  const choose = page.getByRole("button", { name: "Choose my starting point" });
+  await choose.click();
+  await expect(heading).toBeFocused();
+  expect(
+    await heading.evaluate((el) => {
+      const r = el.getBoundingClientRect();
+      return r.top >= 0 && r.bottom <= innerHeight;
+    }),
+  ).toBe(true);
+  await expect(page.locator(".preferences")).toContainText(
+    "Your goal excludes courses with match 0/3",
+  );
+  await page.getByRole("button", { name: "Cancel editing" }).click();
+  await expect(choose).toBeFocused();
+  await begin(page);
+  const edit = page.getByRole("button", { name: "Edit my preferences" });
+  await expect(edit).toBeFocused();
+  await edit.click();
+  await expect(heading).toBeFocused();
+  await page.getByLabel("Maximum course duration").selectOption("20");
+  await page.getByRole("button", { name: "Preview preferences" }).click();
+  await page
+    .getByRole("button", { name: "Confirm change", exact: true })
+    .click();
+  const review = page.getByRole("button", { name: "Review constraints" });
+  await review.click();
+  await expect(heading).toBeFocused();
+  expect(
+    await heading.evaluate((el) => {
+      const r = el.getBoundingClientRect();
+      return r.top >= 0 && r.bottom <= innerHeight;
+    }),
+  ).toBe(true);
+  await page.getByRole("button", { name: "Cancel editing" }).click();
+  await expect(review).toBeFocused();
+});

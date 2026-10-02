@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   catalog,
   fresh,
@@ -48,6 +48,16 @@ export function App() {
         : "Your declared choices and completions stay in this browser. No tracked behavior is used.",
   );
   const [editing, setEditing] = useState(false);
+  const preferenceHeading = useRef<HTMLHeadingElement>(null);
+  const editingOpener = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    if (editing) preferenceHeading.current?.focus();
+    else if (editingOpener.current) {
+      if (editingOpener.current.isConnected) editingOpener.current.focus();
+      else document.querySelector<HTMLButtonElement>(".hero button")?.focus();
+      editingOpener.current = null;
+    }
+  }, [editing]);
   const [draft, setDraft] = useState<Preferences>(state.preferences);
   const [preview, setPreview] = useState<Preview | null>(null);
   const [why, setWhy] = useState<Course | null>(null);
@@ -103,7 +113,9 @@ export function App() {
     if (write(next)) {
       raw.current = JSON.stringify(next);
       setBlocked(false);
-      setMessage("Saved in this browser. Only declared choices and completions; no tracked behavior or model training.");
+      setMessage(
+        "Saved in this browser. Only declared choices and completions; no tracked behavior or model training.",
+      );
     } else
       setMessage(
         "Local saving failed. Your current choices remain in this tab; refresh may lose them.",
@@ -219,6 +231,7 @@ export function App() {
               <button
                 className="primary"
                 onClick={() => {
+                  editingOpener.current = document.activeElement as HTMLElement;
                   setDraft(state.preferences);
                   setEditing(true);
                 }}
@@ -293,11 +306,13 @@ export function App() {
         </section>
         {editing && (
           <section className="preferences" aria-labelledby="prefs-title">
-            <h2 id="prefs-title">Your starting point</h2>
+            <h2 id="prefs-title" ref={preferenceHeading} tabIndex={-1}>
+              Your starting point
+            </h2>
             <p>
               These declared choices are all we know. Duration, level and
-              prerequisites are hard limits. Changing your goal only changes
-              rank.
+              prerequisites are hard limits. Your goal excludes courses with
+              match 0/3, then affects their rank.
             </p>
             <form
               onSubmit={(e) => {
@@ -509,6 +524,8 @@ export function App() {
                   <button
                     className="primary"
                     onClick={() => {
+                      editingOpener.current =
+                        document.activeElement as HTMLElement;
                       setDraft(state.preferences);
                       setEditing(true);
                     }}
