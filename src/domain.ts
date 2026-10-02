@@ -42,6 +42,6 @@ export type Read = {raw: string|null; state: State|null; unavailable: boolean}
 export function read(): Read {try {const raw=window.localStorage.getItem(KEY);return {raw,state:parse(raw),unavailable:false}}catch{return {raw:null,state:null,unavailable:true}}}
 export function write(s: State): boolean {try {window.localStorage.setItem(KEY,JSON.stringify(s));return true}catch{return false}}
 // Original author-assigned judgments for this one frozen persona, not learner research.
-export const judgments: Record<string,'useful'|'neutral'|'rejected'> = {foundations:'useful',charts:'useful',story:'useful',questions:'useful',ethics:'rejected',experiment:'useful',outline:'rejected',synthesis:'neutral'}
+export const judgments: Record<string,'useful'|'neutral'|'rejected'> = {foundations:'useful',charts:'useful',story:'useful',questions:'useful',ethics:'neutral',experiment:'useful',outline:'rejected',synthesis:'neutral'}
 export const fixture: Preferences = {goal:'data',maxMinutes:60,maxLevel:1,completed:[]}
 export function quality(policy: Policy) {const eligible=rank(fixture,[],policy);const shown=eligible.slice(0,3);const useful=shown.filter(c=>judgments[c.id]==='useful').length;return {eligible,shown,useful,totalUseful:eligible.filter(c=>judgments[c.id]==='useful').length,rejected:shown.filter(c=>judgments[c.id]==='rejected').length}}
