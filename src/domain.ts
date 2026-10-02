@@ -203,7 +203,10 @@ export function parse(raw: string | null): State | null {
     if (
       !s.ready &&
       (s.hidden.length > 0 ||
-        JSON.stringify(s.preferences) !== JSON.stringify(fresh().preferences) ||
+        s.preferences.goal !== "data" ||
+        s.preferences.maxMinutes !== 60 ||
+        s.preferences.maxLevel !== 1 ||
+        s.preferences.completed.length !== 0 ||
         s.policy !== "goal")
     )
       return null;

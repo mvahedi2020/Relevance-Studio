@@ -99,6 +99,9 @@ test("hide and restore affect only that course; undo reviewed", async ({
     .getByRole("button", { name: "Confirm change", exact: true })
     .click();
   await expect(page.locator(".course h3")).toHaveCount(3);
+  await expect(
+    page.getByRole("button", { name: "Undo last change" }),
+  ).toHaveCount(0);
 });
 test("no match never violates duration or positive goal", async ({ page }) => {
   await begin(page);

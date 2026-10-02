@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import {
   catalog,
   fresh,
+  fixture,
+  judgments,
   quality,
   rank,
   read,
@@ -663,7 +665,7 @@ export function App() {
             {preview.refresh
               ? "Loading replaces current tab-only work and clears Undo. No restoration is offered for this load."
               : preview.title === "Undo last change"
-                ? "This restores the one prior snapshot and consumes Undo. There is no history stack."
+                ? `Undo restores: ${preview.scope}. This consumes the one prior snapshot. There is no history stack.`
                 : `Undo scope: ${preview.scope}. Undo lasts in this tab until another action replaces it; refresh removes Undo.`}{" "}
             Confirmation checks both current content and saved content for stale
             changes.
@@ -768,16 +770,7 @@ function Quality() {
               <ol>
                 {q.shown.map((c) => (
                   <li key={c.id}>
-                    {c.title}{" "}
-                    <span>
-                      (
-                      {c.id === "outline"
-                        ? "rejected"
-                        : c.id === "ethics"
-                          ? "neutral"
-                          : "useful"}
-                      )
-                    </span>
+                    {c.title} <span>({judgments[c.id]})</span>
                   </li>
                 ))}
               </ol>
@@ -819,27 +812,8 @@ function Quality() {
                 <th>{c.title}</th>
                 <td>{c.fit.data}</td>
                 <td>{c.curiosity}</td>
-                <td>
-                  {c.level === 1 &&
-                  c.minutes <= 60 &&
-                  c.requires.length === 0 &&
-                  c.fit.data > 0
-                    ? "Yes"
-                    : "No"}
-                </td>
-                <td>
-                  {[
-                    "foundations",
-                    "charts",
-                    "story",
-                    "questions",
-                    "experiment",
-                  ].includes(c.id)
-                    ? "useful"
-                    : c.id === "outline"
-                      ? "rejected"
-                      : "neutral"}
-                </td>
+                <td>{reasons(c, fixture).length === 0 ? "Yes" : "No"}</td>
+                <td>{judgments[c.id]}</td>
               </tr>
             ))}
           </tbody>
