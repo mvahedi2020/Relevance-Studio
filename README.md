@@ -1,5 +1,7 @@
 # Relevance Studio
 
+[Open the live demo](https://mvahedi2020.github.io/Relevance-Studio/) · [Public source](https://github.com/mvahedi2020/Relevance-Studio) · [Verified release evidence](docs/product/Validation.md)
+
 **A starting point you can question.** An original fictional Northstar learning prototype: declare a goal and limits, understand every qualifying course, compare deterministic policies, reject an item and recover without a fabricated match.
 
 Mo owns Product / Program Management direction. AI assisted implementation and verification. No employer logic/data/results, trained ML, external AI, hidden history, accounts, services, analytics or real enrollment.

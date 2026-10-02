@@ -20,6 +20,12 @@ Ask 5–8 participants unfamiliar with the sample to choose a goal, explain why 
 
 No engagement, conversion, retention, commercial lift, actual learner relevance or Oracle performance is measured. One authored persona and eight authored judgments cannot establish general policy superiority. Accessibility checks do not substitute for screen-reader and human evaluation.
 
-## Release status — publication pending
+## Public release verification — October 1, 2026
 
-Local functionality and checks are complete. Public repository creation/push, successful **Verify and publish demo** Actions/Pages release, published-head agreement, committed-artifact/live-file parity, public documentation links and profile reviewer route remain release gates. S032 publication and Mo's personal tradeoff/comprehension review remain open until observed. This section is the single publication-status record; other documents link here.
+The primary reviewer independently replayed cold start, both ranking policies and explanations, hide/restore, a 20-minute no-match and Undo recovery, fixture arithmetic, refresh and a 320px explanation drawer. The original 1280×633 entry problem was reproduced and then confirmed repaired: opening preferences moved focus to its heading and brought it into view. No page errors were reported.
+
+Initial release `fa3e307d1862f1f90afc9ee33d692defe0d52cc2` passed [GitHub verification and Pages deployment](https://github.com/mvahedi2020/Relevance-Studio/actions/runs/36971958102). Local HEAD matched public main, the worktree was clean, and all **10 deployed files** matched the local production build and the GitHub deployment artifact byte for byte. The live page rendered its expected entry controls without reported page or console errors. The authored quality fixture remains separate from user choices and from human/model performance claims.
+
+The public [profile](https://github.com/mvahedi2020) provides the case study, PRD, walkthrough and [live demo](https://mvahedi2020.github.io/Relevance-Studio/). These are point-in-time software and publication checks, not uptime, human validation or commercial results. Final documentation-only revisions repeat the repository verification/publication workflow; the private delivery ledger records final-head parity.
+
+The assistant's implementation, verification, publication and reviewer-route work is complete. Mo's personal comprehension, endorsement of provisional choices and actual human research remain unobserved. They cannot be inferred from software checks. This section remains the publication-status record referenced by the other documents.
