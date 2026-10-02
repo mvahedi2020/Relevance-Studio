@@ -45,7 +45,7 @@ export function App() {
       ? "Local saving is unavailable. Changes stay in this tab; a refresh may lose them."
       : !boot.state
         ? "Saved data is invalid. It is preserved. Use Reset with confirmation to replace it; current work can continue in this tab."
-        : "Your choices stay in this browser. No learner history is used.",
+        : "Your declared choices and completions stay in this browser. No tracked behavior is used.",
   );
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState<Preferences>(state.preferences);
@@ -103,7 +103,7 @@ export function App() {
     if (write(next)) {
       raw.current = JSON.stringify(next);
       setBlocked(false);
-      setMessage("Saved in this browser. No history or model training.");
+      setMessage("Saved in this browser. Only declared choices and completions; no tracked behavior or model training.");
     } else
       setMessage(
         "Local saving failed. Your current choices remain in this tab; refresh may lose them.",

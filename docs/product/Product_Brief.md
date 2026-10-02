@@ -2,7 +2,7 @@
 
 Mo owns Product / Program Management direction. AI assisted implementation and software verification. This original fictional Northstar scenario draws on the general problem of course relevance with limited information. It contains no employer logic, outcomes, private learner data or claims of manual coding.
 
-The primary user is a new learner who can state a goal but has no recorded learning history. The decision is whether a transparent starting point can help that learner choose a qualifying course and correct an unsuitable suggestion. The smallest observable outcome is to declare a goal and limits, inspect a qualifying course's reason, reject one and recover a no-match state.
+The primary user is a new learner who can state a goal but has no tracked behavioral history. The decision is whether a transparent starting point can help that learner choose a qualifying course and correct an unsuitable suggestion. The smallest observable outcome is to declare a goal and limits, inspect a qualifying course's reason, reject one and recover a no-match state.
 
 The chosen approach asks three explicit questions (goal, duration and level), with optional declared prerequisite completions. Duration, level, prerequisite, completion, positive goal match and hidden feedback are enforced before either ranking policy. A course with zero goal fit remains visible in the catalog with an exclusion reason, never as a fallback recommendation. Unsupported goals are rejected, not defaulted.
 

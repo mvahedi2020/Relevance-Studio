@@ -1,6 +1,6 @@
 # Reproduce the original learner story
 
-1. Start with an empty browser sample. The landing page labels a fictional scenario, deterministic rules and no trained model/history. No recommendations appear yet.
+1. Start with an empty browser sample. The landing page labels a fictional scenario, deterministic rules and no trained model or tracked behavioral history. No recommendations appear yet.
 2. Choose **Choose my starting point**. Keep **Make sense of data**, **60 minutes**, **Foundational**, with no completed courses. Choose **Preview preferences**. Inspect the before/after limits and Undo scope. Cancel first to observe no save, then preview again and **Confirm change**.
 3. Expect this complete order: Read a small dataset → Tell the story behind a number → Ask a better learning question → Notice what the data leaves out. Open **Why this: Read a small dataset**: match 3/3, score 3 × 10 = 30, duration 30 ≤ 60, foundational, no prerequisites and all eligibility checks passing. Escape returns focus to its opener.
 4. Select **Exploration**, inspect and confirm the policy preview. Expect ethics → story → questions → foundations. Why shows breadth × 10 + match; no model has been trained.

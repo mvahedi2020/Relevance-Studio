@@ -1,6 +1,6 @@
 # A starting point the learner can question
 
-A new learner lacks history and sees no reason to trust an unexplained course list. Mo's product direction asks what can be useful and safe with little evidence. This original Northstar prototype answers with declared preferences, eligibility before ranking, inspectable reasons and reversible control. AI assisted implementation and testing; it is not an employer implementation, proprietary ranking system or customer study.
+A new learner has no tracked behavioral history and sees no reason to trust an unexplained course list. Mo's product direction asks what can be useful and safe with little evidence. This original Northstar prototype answers with declared preferences, eligibility before ranking, inspectable reasons and reversible control. AI assisted implementation and testing; it is not an employer implementation, proprietary ranking system or customer study.
 
 The main decision is to require a positive stated-goal match as well as duration, level and prerequisites. With a data goal and only 20 minutes, a 20-minute idea-sketch course has match 0/3. Filling that screen would imply relevance without evidence. The prototype instead explains no match and offers constraint editing and the whole catalog. Browsing remains a viable alternative for a learner who prefers to inspect everything.
 
