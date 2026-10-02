@@ -67,7 +67,7 @@ export function App() {
     refresh = false,
   ) => {
     const r = read();
-    if (!refresh && !r.unavailable && r.raw !== raw.current) {
+    if (!refresh && !reset && !r.unavailable && r.raw !== raw.current) {
       setMessage(
         "Saved data changed or became unavailable. Review Refresh saved choices before trying again.",
       );
