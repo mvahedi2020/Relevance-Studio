@@ -16,7 +16,7 @@ export type Preferences = { goal: Goal; maxMinutes: number; maxLevel: 1 | 2; com
 export type State = { version: 1; revision: number; ready: boolean; preferences: Preferences; hidden: string[]; policy: Policy }
 export const fresh = (): State => ({version:1,revision:0,ready:false,preferences:{goal:'data',maxMinutes:60,maxLevel:1,completed:[]},hidden:[],policy:'goal'})
 export function reasons(c: Course, p: Preferences, hidden: string[] = []): string[] {
- return [c.minutes > p.maxMinutes ? `Needs ${c.minutes} minutes; your limit is ${p.maxMinutes}.` : '',c.level > p.maxLevel ? 'Above your selected level.' : '',...c.requires.filter(id=>!p.completed.includes(id)).map(id=>`Requires ${catalog.find(x=>x.id===id)!.title}.`),p.completed.includes(c.id) ? 'Already completed.' : '',hidden.includes(c.id) ? 'Hidden by your not-for-me feedback.' : ''].filter(Boolean)
+ return [c.fit[p.goal]===0 ? 'Outside your stated goal (match 0/3).' : '',c.minutes > p.maxMinutes ? `Needs ${c.minutes} minutes; your limit is ${p.maxMinutes}.` : '',c.level > p.maxLevel ? 'Above your selected level.' : '',...c.requires.filter(id=>!p.completed.includes(id)).map(id=>`Requires ${catalog.find(x=>x.id===id)!.title}.`),p.completed.includes(c.id) ? 'Already completed.' : '',hidden.includes(c.id) ? 'Hidden by your not-for-me feedback.' : ''].filter(Boolean)
 }
 export const score = (c: Course,p: Preferences,policy: Policy) => policy==='goal' ? c.fit[p.goal]*10 : c.curiosity*10+c.fit[p.goal]
 export function rank(p: Preferences,hidden: string[],policy: Policy): Course[] {
@@ -42,6 +42,6 @@ export type Read = {raw: string|null; state: State|null; unavailable: boolean}
 export function read(): Read {try {const raw=window.localStorage.getItem(KEY);return {raw,state:parse(raw),unavailable:false}}catch{return {raw:null,state:null,unavailable:true}}}
 export function write(s: State): boolean {try {window.localStorage.setItem(KEY,JSON.stringify(s));return true}catch{return false}}
 // Original author-assigned judgments for this one frozen persona, not learner research.
-export const judgments: Record<string,'useful'|'neutral'|'rejected'> = {foundations:'useful',charts:'useful',story:'useful',questions:'useful',ethics:'neutral',experiment:'useful',outline:'rejected',synthesis:'neutral'}
+export const judgments: Record<string,'useful'|'neutral'|'rejected'> = {foundations:'useful',charts:'useful',story:'useful',questions:'useful',ethics:'rejected',experiment:'useful',outline:'rejected',synthesis:'neutral'}
 export const fixture: Preferences = {goal:'data',maxMinutes:60,maxLevel:1,completed:[]}
 export function quality(policy: Policy) {const eligible=rank(fixture,[],policy);const shown=eligible.slice(0,3);const useful=shown.filter(c=>judgments[c.id]==='useful').length;return {eligible,shown,useful,totalUseful:eligible.filter(c=>judgments[c.id]==='useful').length,rejected:shown.filter(c=>judgments[c.id]==='rejected').length}}
