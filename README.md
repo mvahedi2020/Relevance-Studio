@@ -1,0 +1,41 @@
+# Relevance Studio
+
+**A starting point you can question.** An original fictional Northstar learning prototype: declare a goal and limits, understand every qualifying course, compare deterministic policies, reject an item and recover without a fabricated match.
+
+Mo owns Product / Program Management direction. AI assisted implementation and verification. No employer logic/data/results, trained ML, external AI, hidden history, accounts, services, analytics or real enrollment.
+
+## Try the product story
+
+Start with data / 60 minutes / foundational / no completions. Preview and confirm. Goal fit orders foundations, story, questions, ethics; exploration orders ethics, story, questions, foundations. The exact Why drawer explains limits and score. Hide and restore a course; set 20 minutes for a genuine no-match state. Inspect the whole catalog and recover by reviewing limits. [Exact walkthrough](docs/product/Sample_Walkthrough.md).
+
+The evaluation screen is one frozen authored persona, not real model performance: four eligible courses, three useful. Goal fit top-three useful coverage 3/3; exploration 2/3. Both show zero rejected courses (0/3); the rejected zero-fit outline is ineligible. Numerators, denominators and assumptions remain visible.
+
+## Run locally
+
+Node 24. No environment variables or credentials.
+
+```sh
+npm ci
+npx playwright install chromium
+npm run lint
+npm run typecheck
+npm test
+npm run build
+npm run test:e2e
+npm audit --audit-level=high
+npm run preview
+```
+
+Open `http://127.0.0.1:4188/Relevance-Studio/`. The browser suite starts and stops its own production preview; keep the port free before running it. The static base is `/Relevance-Studio/`. Build copies the public product documents into `dist/docs`. CI verifies and publishes via pinned GitHub actions. Generated build/test/runtime folders and environment files are ignored and guarded.
+
+## Product evidence
+
+- [Product brief](docs/product/Product_Brief.md): user, decision, alternative and limits.
+- [PRD](docs/product/PRD.md): S021–S032 requirement mapping and acceptance.
+- [Sample contract](docs/product/Sample_Contract.md): original catalog, state rules and independent calculations.
+- [Case study](docs/product/Case_Study.md): product choice and limited synthetic outcomes.
+- [Decisions and risks](docs/product/Decisions_and_Risks.md): provisional decisions and alternatives.
+- [Validation](docs/product/Validation.md): actual software checks, proposed human evaluation and release status.
+- [Walkthrough](docs/product/Sample_Walkthrough.md): exact primary and recovery route.
+
+All saved changes require review except explicitly immediate, recoverable Hide/Restore. Invalid saved data is preserved until confirmed reset. Load clears the single Undo snapshot; Undo is consumed on confirmation and does not survive reload. Failed local saving retains the current tab, with refresh risk explained.
