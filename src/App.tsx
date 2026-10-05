@@ -641,8 +641,8 @@ export function App() {
             implementation and verification. Judgments are fictional fixtures,
             not learner research or production performance.
           </p>
-          <a href="docs/product/Case_Study.md">Product case study</a>
-          <a href="docs/product/Sample_Walkthrough.md">Sample walkthrough</a>
+          <a href="docs/product/Case_Study.html">Product case study</a>
+          <a href="docs/product/Sample_Walkthrough.html">Sample walkthrough</a>
         </footer>
       </main>
       {preview && (
