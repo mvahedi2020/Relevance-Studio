@@ -1,5 +1,9 @@
 # A starting point the learner can question
 
+Help a new learner choose a course that fits their goal, available time and experience. Explain why each course fits, and show when none qualifies. The suggestions use fixed rules.
+
+**The product choice:** Explain the recommendation and give the learner control over the limits. [Try the sample](https://mvahedi2020.github.io/Relevance-Studio/) · [Follow the walkthrough](Sample_Walkthrough.md).
+
 ## User and decision
 
 A new learner has no tracked behavioral history and sees no reason to trust an unexplained course list. Mo's product direction asks what can be useful and safe with little evidence. This original Northstar prototype answers with declared preferences, eligibility before ranking, inspectable reasons and reversible control. AI assisted implementation and testing; it is not an employer implementation, proprietary ranking system or customer study.

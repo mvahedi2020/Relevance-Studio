@@ -4,7 +4,9 @@
 
 [Open the live demo](https://mvahedi2020.github.io/Relevance-Studio/) · [Public source](https://github.com/mvahedi2020/Relevance-Studio) · [Verified release evidence](docs/product/Validation.md)
 
-**A starting point you can question.** An original fictional Northstar learning prototype: declare a goal and limits, understand every qualifying course, compare deterministic policies, reject an item and recover without a fabricated match.
+Help a new learner choose a course that fits their goal, available time and experience. Explain why each course fits, and show when none qualifies. The suggestions use fixed rules. All records in this demo are fictional.
+
+**Try it:** Choose a learning goal and time limit, inspect a suggestion’s explanation, then try a limit with no matching course. [Open the demo](https://mvahedi2020.github.io/Relevance-Studio/) · [Follow the walkthrough](docs/product/Sample_Walkthrough.md).
 
 Mo owns Product / Program Management direction. AI assisted implementation and verification. No employer logic/data/results, trained ML, external AI, hidden history, accounts, services, analytics or real enrollment.
 
