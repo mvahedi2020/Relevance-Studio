@@ -1,5 +1,17 @@
 # Relevance Studio — requirements and decisions
 
+## Product decision brief
+
+**Primary user:** A new learner choosing a course without an existing behavioral history.
+
+**Problem hypothesis:** A ranked list can imply confidence even when the available evidence does not support a useful recommendation.
+
+**Scope choice:** Ask for explicit goals and limits, enforce eligibility before ranking, and explain no match rather than invent fit.
+
+**Evidence needed:** Judge useful course choice and understanding against catalog browsing in proposed sessions. The fixed rules and authored evaluation do not demonstrate a trained model or real learning outcomes.
+
+The [case study](Case_Study.md) explains the experience connection, alternatives and cost of the choice. The requirements below describe the bounded fictional prototype.
+
 ## Intended route
 
 A learner selects a goal, maximum duration and highest level; optionally declares completed sample courses; previews and confirms preferences; inspects all eligible results and Why this; compares deterministic policies; hides and restores an item; changes to a no-match limit and recovers through reviewed constraints or catalog inspection.
