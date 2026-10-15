@@ -8,6 +8,8 @@ Help a new learner choose a course that fits their goal, available time and expe
 
 **Try it:** Choose a learning goal and time limit, inspect a suggestion’s explanation, then try a limit with no matching course. [Open the demo](https://mvahedi2020.github.io/Relevance-Studio/) · [Follow the walkthrough](docs/product/Sample_Walkthrough.md).
 
+**Experience connection:** My Oracle work included course recommendations, cold-start decisions and evaluation with data science and ML partners. This example isolates the product policy around relevance, eligibility and learner trust. [Read the decision to challenge](docs/product/Case_Study.md#experience-and-decision).
+
 Mo owns Product / Program Management direction. AI assisted implementation and verification. No employer logic/data/results, trained ML, external AI, hidden history, accounts, services, analytics or real enrollment.
 
 Product tradeoff: a positive stated-goal threshold prevents fabricated fit but may exclude useful adjacent learning. The next investment depends on learner choice and progression compared with catalog browsing. See the [case study](docs/product/Case_Study.md) for the proposed comparison and investment criteria.

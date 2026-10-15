@@ -4,6 +4,12 @@ Help a new learner choose a course that fits their goal, available time and expe
 
 **The product choice:** Explain the recommendation and give the learner control over the limits. [Try the sample](https://mvahedi2020.github.io/Relevance-Studio/) · [Follow the walkthrough](Sample_Walkthrough.md).
 
+## Experience and decision
+
+My Oracle work included course recommendations, cold-start decisions and evaluation with data science and ML partners. This example isolates the product policy around relevance, eligibility and learner trust. This is a separate fictional portfolio exercise; its records, rules and results do not reproduce an employer system.
+
+**Decision to challenge:** When should the product show no recommendation instead of a weak one? A strict match rule protects trust but can also hide a useful adjacent course; that tradeoff needs learner evidence.
+
 ## User and decision
 
 A new learner has no tracked behavioral history and sees no reason to trust an unexplained course list. Mo's product direction asks what can be useful and safe with little evidence. This original Northstar prototype answers with declared preferences, eligibility before ranking, inspectable reasons and reversible control. AI assisted implementation and testing; it is not an employer implementation, proprietary ranking system or customer study.
