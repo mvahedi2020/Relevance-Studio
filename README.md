@@ -49,3 +49,7 @@ npm run preview
 ```
 
 Open `http://127.0.0.1:4188/Relevance-Studio/`. The browser suite starts and stops its own production preview; keep the port free before running it. The static base is `/Relevance-Studio/`. Build copies the public product documents into `dist/docs`. CI verifies and publishes via pinned GitHub actions. Generated build/test/runtime folders and environment files are ignored and guarded.
+
+## Typography
+
+The app and document reader use **SF Pro** for body text and **SF Pro Rounded** for headings. Fallbacks stay within the approved Aptos, Aptos Display, SF Pro, SF Pro Rounded and Calibri families; native Apple system aliases select SF Pro. Font files are not bundled. The browser selects the first installed choice and may substitute its default if none is available.
