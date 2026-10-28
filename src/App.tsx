@@ -812,7 +812,7 @@ function Quality() {
         })}
       </div>
       <h3>Inspect every fixture judgment</h3>
-      <div className="table-wrap">
+      <div className="table-wrap" tabIndex={0} role="region" aria-label="Policy comparison results">
         <table>
           <thead>
             <tr>
